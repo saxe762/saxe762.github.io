@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>食刻訂</title>
+
+        <!-- CSS FILES -->    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">                    
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+    
+    <body>
+        
+       <div style="text-align:center;color: #000;font-size: 40px;font-weight: bold;font-family:'LXGW WenKai TC', cursive;">
+                    食刻訂<i class="bi bi-clock"></i>
+       </div>
+        
+
+        <main>
+
+            <section class="hero">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-5 col-12 m-auto">
+                            <div class="heroText">
+
+                                <h1 class="text-white mb-lg-5 mb-3">本日推薦</h1>
+
+                                <div class="c-reviews my-3 d-flex flex-wrap align-items-center">
+                                    <div class="d-flex flex-wrap align-items-center">
+                                        <h4 class="text-white mb-0 me-3" id="main-rating-text">4.7/5</h4>
+
+                                        <div class="reviews-stars" id="main-rating-stars">                                        </div>
+                                    </div>
+
+                                    <p class="text-white w-100">共有 <strong id="main-review-count">1,206位</strong> 的顧客評分</p>
+                                </div>
+                                <a href="booking.html" class="btn btn-outline-light btn-lg" role="button">確認訂單</a>                            </div> 
+                        </div>
+                        
+                        <div class="col-lg-7 col-12">
+                            <div id="carouselExampleCaptions" class="carousel carousel-fade hero-carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active" data-rating="4.7" data-review-count="1206">
+                                        <div class="carousel-image-wrap">
+											<a href="house.html?id=1">
+                                            	<img src="images/slide/jay-wennington-N_Y88TWmGwA-unsplash.jpg" class="img-fluid carousel-image" alt="">											</a>                                        </div>
+                                        
+                                        <div class="carousel-caption">
+                                            <span class="text-white">
+                                                <i class="bi-geo-alt me-2"></i>
+                                                台中 公益路二段                                            </span>
+
+                                            <h4 class="hero-text">豪食</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item" data-rating="4.6" data-review-count="2803">
+                                        <div class="carousel-image-wrap">
+                                            <a href="house.html?id=2">
+                                                <img src="images/slide/jason-leung-O67LZfeyYBk-unsplash.jpg" class="img-fluid carousel-image" alt="">                                            </a>                                        </div>
+                                        
+                                        <div class="carousel-caption">
+                                            <span class="text-white">
+                                                <i class="bi-geo-alt me-2"></i>
+                                                台中 美村路                                            </span>
+
+                                            <h4 class="hero-text">獨享牛排</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="carousel-item" data-rating="4.1" data-review-count="988">
+                                        <div class="carousel-image-wrap">
+                                            <a href="house.html?id=3">
+                                                <img src="images/slide/ivan-torres-MQUqbmszGGM-unsplash.jpg" class="img-fluid carousel-image" alt="">                                            </a>                                        </div>
+                                        
+                                        <div class="carousel-caption">
+                                            <span class="text-white">
+                                                <i class="bi-geo-alt me-2"></i>
+                                                台中 福星路                                            </span>
+
+                                            <h4 class="hero-text">有情有義</h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                                    <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                                    <span class="visually-hidden">Previous</span>                                </button>
+
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                                    <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                                    <span class="visually-hidden">Next</span>                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-wrap">
+                    <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                        <source src="video/production_ID_3769033.mp4" type="video/mp4">
+                        	Your browser does not support the video tag.
+               	  </video>
+                </div>
+
+                <div class="overlay"></div>
+            </section>
+
+            <section class="menu section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-12">
+                            <h2 class="text-center mb-lg-5 mb-4">精選餐廳</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/breakfast/brett-jordan-8xt8-HIFqc8-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">早午餐</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">修蛋幾勒</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.3/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">102個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/lunch/farhad-ibrahimzade-MGKqxm6u2bc-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">午餐</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">魔幻屋印度咖哩</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3.9/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-half reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">50個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/dinner/keriliwi-c3mFafsFz2w-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">晚餐</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">經典牛排</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.0/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">86個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/dinner/farhad-ibrahimzade-ZipYER3NLhY-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">晚餐</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">海派</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.2/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">44個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/breakfast/louis-hansel-dphM2U1xq0U-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">早餐</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">晨堡</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">4.6/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-half reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">102個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="menu-thumb">
+                                <div class="menu-image-wrap">
+                                    <img src="images/lunch/farhad-ibrahimzade-D5c9ZciQy_I-unsplash.jpg" class="img-fluid menu-image" alt="">
+
+                                    <span class="menu-tag bg-warning">Lunch</span>
+                                </div>
+
+                                <div class="menu-info d-flex flex-wrap align-items-center">
+                                    <h4 class="mb-0">西餐</h4>
+
+                                    <div class="d-flex flex-wrap align-items-center w-100 mt-2">
+                                        <h6 class="reviews-text mb-0 me-3">3.4/5</h6>
+
+                                        <div class="reviews-stars">
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star-fill reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                            <i class="bi-star reviews-icon"></i>
+                                        </div>
+
+                                        <p class="reviews-text mb-0 ms-4">64個評分</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="BgImage"></section>
+
+            <section class="news section-padding">
+                <div class="container">
+                    <div class="row">
+
+                        <h2 class="text-center mb-lg-5 mb-4">食記分享</h2>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="images/news/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info news-text-info-large">
+                                    <span class="category-tag bg-danger">Featured</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">食記1</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="images/news/stefan-johnson-xIFbDeGcy44-unsplash.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info news-text-info-large">
+                                    <span class="category-tag bg-danger">Featured</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">食記2</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="news-thumb mb-lg-0 mb-lg-4 mb-0">
+                                <a href="news-detail.html">
+                                    <img src="images/news/gilles-lambert-S_LhjpfIdm4-unsplash.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag me-3 bg-info">Promotions</span>
+
+                                    <strong>8 April 2022</strong>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">食記3</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="news-thumb mb-lg-0 mb-lg-4 mb-2">
+                                <a href="news-detail.html">
+                                    <img src="images/news/caroline-attwood-bpPTlXWTOvg-unsplash.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag">News</span>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">食記4</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="news-thumb mb-4">
+                                <a href="news-detail.html">
+                                    <img src="images/news/louis-hansel-GiIiRV0FjwU-unsplash.jpg" class="img-fluid news-image" alt="">
+                                </a>
+                                
+                                <div class="news-text-info">
+                                    <span class="category-tag me-3 bg-info">Meeting</span>
+
+                                    <strong>30 April 2022</strong>
+
+                                    <h5 class="news-title mt-2">
+                                        <a href="news-detail.html" class="news-title-link">食記5</a>
+                                    </h5>
+                                </div>
+                            </div> 
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer class="site-footer section-padding">
+            
+            <div class="container">
+                
+                <div class="row">
+
+                    <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">關於我們</h6>
+
+                        <p>121 Einstein Loop N, Bronx, NY 10475, United States</p>
+
+                        <a href="https://goo.gl/maps/wZVGLA7q64uC1s886" class="custom-btn btn btn-dark mt-2">Directions</a>                    </div>
+
+                    <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">部落格</h6>
+
+                        <p class="mb-2">Monday - Friday</p>
+
+                        <p>10:00 AM - 08:00 PM</p>
+
+                        <p>Tel: <a href="tel: 010-02-0340" class="tel-link">010-02-0340</a></p>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
+                        <h6 class="text-white mb-lg-4 mb-3">社群</h6>
+
+                        <ul class="social-icon">
+                            <li><a href="#" class="social-icon-link bi-facebook"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-instagram"></a></li>
+
+                            <li><a href="https://twitter.com/search?q=tooplate.com&src=typed_query&f=live" target="_blank"
+                            	 class="social-icon-link bi-twitter"></a></li>
+
+                            <li><a href="#" class="social-icon-link bi-youtube"></a></li>
+                        </ul>
+                    
+                        <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
+                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
+                    </div>
+                </div><!-- row ending -->
+             </div>
+            <!-- container ending -->
+             
+        </footer>
+
+        <!-- Modal -->
+        <div class="modal fade" id="BookingModal" tabindex="-1" aria-labelledby="BookingModal" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="mb-0">Reserve a table</h3>
+
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <div class="modal-body d-flex flex-column justify-content-center">
+                        <div class="booking">
+                            
+                            <form class="booking-form row" role="form" action="#" method="post">
+                                <div class="col-lg-6 col-12">
+                                    <label for="name" class="form-label">姓名</label>
+
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <label for="email" class="form-label">電子信箱</label>
+
+                                    <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="your@email.com" required>
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <label for="phone" class="form-label">電話號碼</label>
+
+                                    <input type="telephone" name="phone" id="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="form-control" placeholder="123-456-7890">
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <label for="people" class="form-label">人數</label>
+
+                                    <input type="text" name="people" id="people" class="form-control" placeholder="12 persons">
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <label for="date" class="form-label">日期</label>
+
+                                    <input type="date" name="date" id="date" value="" class="form-control">
+                                </div>
+
+                                <div class="col-lg-6 col-12">
+                                    <label for="time" class="form-label">Time</label>
+
+                                    <select class="form-select form-control" name="time" id="time">
+                                      <option value="5" selected>5:00 PM</option>
+                                      <option value="6">6:00 PM</option>
+                                      <option value="7">7:00 PM</option>
+                                      <option value="8">8:00 PM</option>
+                                      <option value="9">9:00 PM</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12">
+                                    <label for="message" class="form-label">意見回饋</label>
+
+                                    <textarea class="form-control" rows="4" id="message" name="message" placeholder=""></textarea>
+                                </div>
+
+                                <div class="col-lg-4 col-12 ms-auto">
+                                    <button type="submit" class="form-control">送出</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer"></div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+            function generateStars(rating) {
+                const full = Math.floor(rating);
+                const half = rating % 1 >= 0.25 && rating % 1 < 0.75;
+                const empty = 5 - full - (half ? 1 : 0);
+            
+                let html = '';
+                for (let i = 0; i < full; i++) html += '<i class="bi bi-star-fill reviews-icon"></i>';
+                if (half) html += '<i class="bi bi-star-half reviews-icon"></i>';
+                for (let i = 0; i < empty; i++) html += '<i class="bi bi-star reviews-icon"></i>';
+                return html;
+            }
+            
+            document.addEventListener('DOMContentLoaded', function () {
+            const active = document.querySelector('.carousel-item.active');
+            const rating = parseFloat(active.getAttribute('data-rating'));
+            const count = active.getAttribute('data-review-count');
+
+            document.getElementById('main-rating-text').textContent = `${rating}/5`;
+            document.getElementById('main-rating-stars').innerHTML = generateStars(rating);
+            document.getElementById('main-review-count').textContent = `${count}位`;
+            });
+
+            document.querySelector('#carouselExampleCaptions').addEventListener('slid.bs.carousel', function (e) {
+                const active = e.target.querySelector('.carousel-item.active');
+                const rating = parseFloat(active.getAttribute('data-rating'));
+                const count = active.getAttribute('data-review-count');
+            
+                document.getElementById('main-rating-text').textContent = `${rating}/5`;
+                document.getElementById('main-rating-stars').innerHTML = generateStars(rating);
+                document.getElementById('main-review-count').textContent = `${count}位`;
+            });
+            </script>
+    </body>
+</html>

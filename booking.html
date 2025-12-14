@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Crispy Kitchen - 訂位查詢與管理</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">                  
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+
+        <style>
+            /* 自定義樣式：優化背景與表單呈現 */
+            body {
+                font-family: 'Montserrat', sans-serif;
+                height: 100vh;
+                margin: 0;
+                /* 背景圖設定 */
+                background-image: url('images/slide/jay-wennington-N_Y88TWmGwA-unsplash.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* 背景遮罩：讓背景變暗一點，凸顯中間的表單 */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* 40% 透明度的黑色 */
+                z-index: 1;
+            }
+
+            /* 表單卡片設計 */
+            .reservation-card {
+                background-color: rgba(255, 255, 255, 0.95); /* 微微透明的白色背景 */
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                width: 100%;
+                max-width: 500px; /* 限制最大寬度 */
+                position: relative;
+                z-index: 2; /* 確保在遮罩之上 */
+            }
+
+            .form-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-weight: 700;
+                color: #333;
+            }
+
+            .btn-submit {
+                background-color: #333; /* 假設這是 Crispy Kitchen 的主色調，可依需求調整 */
+                color: white;
+                padding: 12px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-submit:hover {
+                background-color: #000;
+                transform: translateY(-2px);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="overlay"></div>
+
+        <div class="container d-flex justify-content-center">
+            <div class="reservation-card">
+                <a href="index.html" class="btn btn-submit border-0">回到首頁</a>
+                <h2 class="form-title">訂位查詢與管理</h2>
+                
+                <form id="search-form" class="mb-5">
+                    <p class="text-center text-secondary">請輸入您的預約資訊進行查詢</p>
+                    <div class="mb-3">
+                        <label for="search-name" class="form-label">姓名</label>
+                        <input type="text" class="form-control" id="search-name" name="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="search-phone" class="form-label">電話</label>
+                        <input type="tel" class="form-control" id="search-phone" name="phone" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">查詢訂位</button>
+                    </div>
+                </form>
+
+                <div id="results-area">
+                    <p class="text-center text-muted">目前無查詢結果</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.getElementById('search-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const formData = new FormData(form);
+
+                // 使用 Fetch API 將資料非同步傳送到 search_booking.php
+                fetch('search_booking.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json()) // 預期後端返回 JSON 格式
+                .then(data => {
+                    displayResults(data);
+                })
+                .catch(error => {
+                    console.error('查詢發生錯誤:', error);
+                    document.getElementById('results-area').innerHTML = '<p class="text-danger">系統錯誤，請稍後再試。</p>';
+                });
+            });
+
+            function displayResults(data) {
+                const resultsArea = document.getElementById('results-area');
+                let html = '';
+
+                if (data.status === 'success' && data.reservations.length > 0) {
+                    html += '<h4 class="mt-4 mb-3">找到以下訂位:</h4>';
+                    data.reservations.forEach(reservation => {
+                        html += `
+                            <div class="card p-3 mb-3 border-secondary">
+                                <strong>餐廳:</strong> ${reservation.restaurant_name}<br>
+                                <strong>訂位時間:</strong> ${reservation.reservation_time}<br>
+                                <strong>人數:</strong> ${reservation.guests}<br>
+                                <strong>訂位人:</strong> ${reservation.name} (${reservation.phone})<br>
+                                <button class="btn btn-sm btn-danger mt-2" onclick="cancelBooking(${reservation.reservation_id})">取消訂位</button>
+                            </div>
+                        `;
+                    });
+                } else {
+                    html += '<p class="text-center text-warning">❌ 未找到您的訂位紀錄。</p>';
+                }
+                resultsArea.innerHTML = html;
+            }
+
+            function cancelBooking(id) {
+                if (!confirm('您確定要取消這筆訂位嗎？')) return;
+
+                const formData = new FormData();
+                formData.append('reservation_id', id);
+
+                fetch('cancel_booking.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    alert(data.message);
+                    // 取消成功後，重新執行查詢以更新列表
+                    document.getElementById('search-form').dispatchEvent(new Event('submit'));
+                })
+                .catch(error => {
+                    alert('取消失敗，請檢查網路。');
+                });
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-TW">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Restaurant Reservation">
+        <meta name="author" content="">
+
+        <title>餐廳預約</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">                  
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+        <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
+
+        <style>
+            /* 自定義樣式：優化背景與表單呈現 */
+            body {
+                font-family: 'Montserrat', sans-serif;
+                height: 100vh;
+                margin: 0;
+                /* 背景圖設定 */
+                background-image: url('images/slide/jay-wennington-N_Y88TWmGwA-unsplash.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* 背景遮罩：讓背景變暗一點，凸顯中間的表單 */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* 40% 透明度的黑色 */
+                z-index: 1;
+            }
+
+            /* 表單卡片設計 */
+            .reservation-card {
+                background-color: rgba(255, 255, 255, 0.95); /* 微微透明的白色背景 */
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                width: 100%;
+                max-width: 500px; /* 限制最大寬度 */
+                position: relative;
+                z-index: 2; /* 確保在遮罩之上 */
+            }
+
+            .form-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-weight: 700;
+                color: #333;
+            }
+
+            .btn-submit {
+                background-color: #333; /* 假設這是 Crispy Kitchen 的主色調，可依需求調整 */
+                color: white;
+                padding: 12px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-submit:hover {
+                background-color: #000;
+                transform: translateY(-2px);
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="overlay"></div>
+
+        <div class="container d-flex justify-content-center">
+            <div class="reservation-card">
+				<a href="index.html" class="btn btn-submit border-0">回到首頁</a>
+                
+                <h2 class="form-title" id="restaurant-name">餐廳預約</h2>
+                <h2 class="form-title">立即預約</h2>
+                
+                <form action="process_reservation.php" method="post">
+                    
+                    <input type="hidden" name="restaurant_id" id="restaurant-id" value="">
+
+                    <div class="mb-3">
+                        <label for="name" class="form-label">姓名</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="請輸入您的姓名" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">電話</label>
+                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="09xx-xxx-xxx" required>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <label for="guests" class="form-label">人數</label>
+                            <input type="number" class="form-control" id="guests" name="guests" min="1" value="2" required>
+                        </div>
+                        <div class="col-md-8 mb-3">
+                            <label for="time" class="form-label">預約時間</label>
+                            <input type="datetime-local" class="form-control" id="time" name="time" required>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <button type="submit" class="btn btn-submit border-0">確認送出</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/custom.js"></script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // 1. 建立餐廳 ID 到名稱的對應表
+                const restaurantMap = {
+                    '1': '豪食',
+                    '2': '獨享牛排',
+                    '3': '有情有義'
+                };
+
+                // 2. 讀取 URL 中的 'id' 參數
+                const urlParams = new URLSearchParams(window.location.search);
+                const restaurantId = urlParams.get('id');
+
+                // 3. 檢查 ID 是否存在且有效
+                if (restaurantId && restaurantMap[restaurantId]) {
+                    // 設置動態標題
+                    document.getElementById('restaurant-name').textContent = restaurantMap[restaurantId];
+                    
+                    // 將 ID 設置到隱藏欄位中，以便 POST 到 PHP
+                    document.getElementById('restaurant-id').value = restaurantId;
+                } else {
+                    // 如果 ID 不存在或錯誤，給予提示
+                    document.getElementById('restaurant-name').textContent = '預約服務 (請從首頁選擇餐廳)';
+                    // 為了安全，如果 ID 錯誤，可以禁用提交按鈕或導向首頁
+                    document.querySelector('.reservation-card').innerHTML = '<h2>錯誤：請從首頁選擇餐廳！</h2><a href="index.html" class="btn btn-submit border-0">回到首頁</a>';
+                }
+            });
+        </script>
+
+    </body>
+</html>
