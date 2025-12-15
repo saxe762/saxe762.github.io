@@ -47,7 +47,7 @@
                 border-radius: 15px;
                 box-shadow: 0 10px 25px rgba(0,0,0,0.2);
                 width: 100%;
-                max-width: 500px; /* 限制最大寬度 */
+                max-width: 600px; /* 增加寬度以容納資訊 */
                 position: relative;
                 z-index: 2; /* 確保在遮罩之上 */
             }
@@ -103,6 +103,36 @@
             </div>
         </div>
 
+        <div class="modal fade" id="EditBookingModal" tabindex="-1" aria-labelledby="EditBookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="EditBookingModalLabel">修改訂位資訊</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="edit-form">
+                            <input type="hidden" id="edit-reservation-id" name="reservation_id">
+                            
+                            <div class="mb-3">
+                                <label for="edit-guests" class="form-label">修改人數</label>
+                                <input type="number" class="form-control" id="edit-guests" name="guests" min="1" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="edit-time" class="form-label">修改預約時間</label>
+                                <input type="datetime-local" class="form-control" id="edit-time" name="time" required>
+                            </div>
+                            <div class="d-grid mt-4">
+                                <button type="submit" class="btn btn-primary">確認修改</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/bootstrap.bundle.min.js"></script>
+
         <script>
             document.getElementById('search-form').addEventListener('submit', function(e) {
                 e.preventDefault();
@@ -131,12 +161,18 @@
                 if (data.status === 'success' && data.reservations.length > 0) {
                     html += '<h4 class="mt-4 mb-3">找到以下訂位:</h4>';
                     data.reservations.forEach(reservation => {
+                        // 確保 reservation 物件能正確傳遞給 openEditModal 函數
+                        const reservationJson = JSON.stringify(reservation).replace(/"/g, '&quot;');
+                        
                         html += `
                             <div class="card p-3 mb-3 border-secondary">
                                 <strong>餐廳:</strong> ${reservation.restaurant_name}<br>
                                 <strong>訂位時間:</strong> ${reservation.reservation_time}<br>
                                 <strong>人數:</strong> ${reservation.guests}<br>
                                 <strong>訂位人:</strong> ${reservation.name} (${reservation.phone})<br>
+                                
+                                <button class="btn btn-sm btn-info text-white mt-2" onclick="openEditModal('${reservationJson}')">修改訂位</button>
+                                
                                 <button class="btn btn-sm btn-danger mt-2" onclick="cancelBooking(${reservation.reservation_id})">取消訂位</button>
                             </div>
                         `;
@@ -146,6 +182,55 @@
                 }
                 resultsArea.innerHTML = html;
             }
+
+            // *** 新增：開啟修改彈出視窗的函數 ***
+            function openEditModal(reservationJson) {
+                const reservation = JSON.parse(reservationJson);
+                
+                // 格式化 MySQL DATETIME (YYYY-MM-DD HH:MM:SS) 為 HTML datetime-local 格式 (YYYY-MM-DDTHH:MM)
+                const formattedTime = reservation.reservation_time.substring(0, 16).replace(' ', 'T');
+
+                // 填入現有資料
+                document.getElementById('edit-reservation-id').value = reservation.reservation_id;
+                document.getElementById('edit-guests').value = reservation.guests;
+                document.getElementById('edit-time').value = formattedTime;
+                
+                // 顯示 Modal
+                const editModal = new bootstrap.Modal(document.getElementById('EditBookingModal'));
+                editModal.show();
+            }
+
+            // *** 新增：提交修改表單的函數監聽 ***
+            document.getElementById('edit-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const form = e.target;
+                const formData = new FormData(form);
+
+                fetch('update_booking.php', { // 傳送到新的後端檔案
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    // 隱藏 Modal
+                    const modalElement = document.getElementById('EditBookingModal');
+                    const modalInstance = bootstrap.Modal.getInstance(modalElement);
+                    if (modalInstance) {
+                        modalInstance.hide();
+                    }
+
+                    alert(data.message);
+                    
+                    if (data.status === 'success' || data.status === 'fail') {
+                         // 不論成功或資料未變更，都重新查詢以更新列表
+                        document.getElementById('search-form').dispatchEvent(new Event('submit'));
+                    }
+                })
+                .catch(error => {
+                    alert('修改失敗，請檢查網路。');
+                });
+            });
+
 
             function cancelBooking(id) {
                 if (!confirm('您確定要取消這筆訂位嗎？')) return;
