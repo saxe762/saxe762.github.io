@@ -4,7 +4,7 @@ header('Content-Type: application/json'); // 確保回傳 JSON 格式
 $servername = "localhost";
 $username = "root";
 $password = "12345678";
-$dbname = "test_01";
+$dbname = "time_to_booking";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

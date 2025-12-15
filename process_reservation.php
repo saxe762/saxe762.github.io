@@ -3,7 +3,7 @@
 $servername = "localhost"; // 資料庫主機名稱 (通常是 localhost)
 $username = "root"; // MySQL 使用者名稱
 $password = "12345678"; // MySQL 密碼
-$dbname = "test_01"; // 資料庫名稱 (應包含 reservations 表格)
+$dbname = "time_to_booking"; // 資料庫名稱 (應包含 reservations 表格)
 
 // 2. 連接資料庫
 $conn = new mysqli($servername, $username, $password, $dbname);
