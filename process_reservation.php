@@ -1,6 +1,6 @@
 <?php
 // 1. 資料庫連接設定 - 請務必修改以下參數！
-$servername = "localhost"; // 資料庫主機名稱 (通常是 localhost)
+$servername = "192.168.80.108"; // 資料庫主機名稱 (通常是 localhost)
 $username = "root"; // MySQL 使用者名稱
 $password = "12345678"; // MySQL 密碼
 $dbname = "time_to_booking"; // 資料庫名稱 (應包含 reservations 表格)

@@ -3,7 +3,7 @@
 header('Content-Type: application/json');
 
 // 1. 資料庫連接設定 (請替換為您的實際資訊)
-$servername = "localhost";
+$servername = "192.168.80.108";
 $username = "root";
 $password = "12345678";
 $dbname = "time_to_booking";
