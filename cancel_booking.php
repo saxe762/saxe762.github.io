@@ -2,7 +2,7 @@
 header('Content-Type: application/json');
 // 設置資料庫配置 (請替換為您的實際資訊)
 $servername = "192.168.80.108";
-$username = "root";
+$username = "remote_user";
 $password = "12345678";
 $dbname = "time_to_booking";
 
