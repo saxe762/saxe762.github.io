@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Crispy Kitchen - News Page</title>
+        <title>食記</title>
 
         <!-- CSS FILES -->  
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,62 +20,62 @@
         <link href="css/bootstrap-icons.css" rel="stylesheet">
 
         <link href="css/tooplate-crispy-kitchen.css" rel="stylesheet">
-<!--
+        <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <style>
+            /* 自定義樣式：優化背景與表單呈現 */
 
-Tooplate 2129 Crispy Kitchen
+            /* 背景遮罩：讓背景變暗一點，凸顯中間的表單 */
+            .overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); /* 40% 透明度的黑色 */
+                z-index: 1;
+            }
 
-https://www.tooplate.com/view/2129-crispy-kitchen
+            /* 表單卡片設計 */
+            .reservation-card {
+                background-color: rgba(255, 255, 255, 0.95); /* 微微透明的白色背景 */
+                padding: 40px;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+                width: 100%;
+                max-width: 500px; /* 限制最大寬度 */
+                position: relative;
+                z-index: 2; /* 確保在遮罩之上 */
+            }
 
--->
+            .form-title {
+                text-align: center;
+                margin-bottom: 30px;
+                font-weight: 700;
+                color: #333;
+            }
+
+            .btn-submit {
+                background-color: #333; /* 假設這是 Crispy Kitchen 的主色調，可依需求調整 */
+                color: white;
+                padding: 12px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+            }
+
+            .btn-submit:hover {
+                background-color: #000;
+                transform: translateY(-2px);
+            }
+        </style>
     </head>
     
     <body>
         
-        <nav class="navbar navbar-expand-lg bg-white shadow-lg">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <a class="navbar-brand" href="index.html">
-                    Crispy Kitchen
-                </a>
-
-                <div class="d-lg-none">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
-                </div>
-
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav mx-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index.html">Home</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Story</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="menu.html">Menu</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="news.html">Our Updates</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="d-none d-lg-block">
-                    <button type="button" class="custom-btn btn btn-danger" data-bs-toggle="modal" data-bs-target="#BookingModal">Reservation</button>
-                </div>
-
-            </div>
-        </nav>
-
+       <div style="text-align:center;color: #000;font-size: 40px;font-weight: bold;font-family:'LXGW WenKai TC', cursive;">
+                    食刻訂<i class="bi bi-clock"></i>
+       </div>
+        <a href="index.html" class="btn btn-submit border-0">回到首頁</a>
         <main>
 
             <header class="site-header site-news-detail-header">
@@ -83,7 +83,7 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                     <div class="row">
 
                         <div class="col-12">
-                            <h2>Learning a fine dining experience</h2>
+                            <h2>還在煩惱聚餐場所嗎？來豪食就對了！</h2>
                         </div>
 
                     </div>
@@ -99,29 +99,32 @@ https://www.tooplate.com/view/2129-crispy-kitchen
 
                             <div class="col-lg-10 col-10 mx-auto mt-5">
                                 
-                                <h4 class="mb-3">The best fine-dining experience at Crispy Kitchen</h4>
+                                <h4 class="mb-3">還在為了尋找完美的聚餐地點而煩惱嗎？想要大口吃肉、暢快聊天，卻擔心踩雷？<br>「豪食」絕對是您與親朋好友相聚的不二之選！</h4>
 
-                                <p>Phasellus in augue at quam ornare malesuada. Sed magna lorem, dapibus nec lorem sed, pretium vulputate ante. In porttitor sapien urna, eu vulputate arcu pharetra non. Vivamus nec nulla quis leo sodales semper. Quisque sed ultricies tortor. Fusce porta pretium tellus, sit amet vulputate orci.</p>
+                                <p></p>
 
                                 <ul class="list">
-                                    <li class="list-item">Pasta stats published in the International</li>
+                                <li class="list-item" style="color: #000000;">
+                                    <strong>🍽️ 令人驚豔的味蕾饗宴：</strong>
+                                    我們堅持嚴選當季最新鮮的食材，透過主廚精湛的手藝，將每一道料理都幻化成桌上的藝術品。從招牌大菜到精緻小點，每一口都能感受到「豪」邁的份量與細膩的美味。
+                                </li>
 
-                                    <li class="list-item">Rice flour, or legumes such as beans</li>
+                                <li class="list-item" style="color: #000000;">
+                                    <strong>✨ 寬敞舒適的聚會空間：</strong>
+                                    告別擁擠與嘈雜！豪食擁有寬敞明亮的用餐環境，無論是溫馨的家庭聚會、熱鬧的朋友慶生，還是正式的公司部門聚餐，我們多樣化的座位設計都能滿足您的需求。
+                                </li>
 
-                                    <li class="list-item">Belgian family developed major food poisoning symptoms</li>
+                                <li class="list-item" style="color: #000000;"       >
+                                    <strong>🥂 熱情貼心的優質服務：</strong>
+                                    我們深知聚餐的快樂來自於氛圍。豪食的服務團隊以最熱情的笑容，隨時關注您的需求，讓您只需專注於享受美食與歡笑，剩下的交給我們。
+                                </li>
                                 </ul>
 
-                                <p>Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or other shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste</p>
+                                <p></p>
 
                                 <div class="ratio ratio-16x9 my-5">
-                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/6vebbDZxoKE?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <img width="560" height="315" src="images/unnamed.jpg" ></img>
                                 </div>
-
-                                <p>Crispy Kitchen is free Bootstrap 5 HTML template provided by Tooplate. You are free to use this layout for commercial purposes. You are NOT allowed to redistribute the template ZIP file on any template donwnload website. Please <a href="https://www.tooplate.com/contact" target="_blank">contact us</a> for more information.</p>
-
-                                <h5 class="mt-4 mb-3">Pasta with Cream Sauce Recipe</h5>
-
-                                <p>Pasta is a type of food typically made from an unleavened dough of wheat flour mixed with water or eggs, and formed into sheets or other shapes, then cooked by boiling or baking. Rice flour, or legumes such as beans or lentils, are sometimes used in place of wheat flour to yield a different taste</p>
                             </div>
                         </div>
 
@@ -155,9 +158,9 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 <img src="images/author/alexander-hipp-iEEBWgY_6lA-unsplash.jpg" class="img-fluid news-author-image" alt="">
 
                                 <div class="ms-4 w-50">
-                                    <p class="mb-2">Donec pharetra tellus nulla, aliquam elementum lorem hendrerit non.</p>
+                                    <p class="mb-2" style="color:#000000">燈光美、氣氛佳、服務好，最重要的是餐點非常美味！</p>
                                     
-                                    <a href="#">David Martin</a>
+                                    <p class="mb-2" style="color: #000000">陳大衛</p>
                                 </div>
 
                                 <span class="ms-auto">14 hours ago</span>
@@ -167,105 +170,12 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                                 <img src="images/author/shoeib-abolhassani-ojl7T2Ah93U-unsplash.jpg" class="img-fluid news-author-image" alt="">
 
                                 <div class="ms-4 w-50">
-                                    <p class="mb-2">Quisque non libero ut mauris fermentum efficitur ac ut nibh.</p>
+                                    <p class="mb-2" style="color:#000000">牛排跟義大利麵都很美味，餐後甜點的提拉米蘇更是一絕。</p>
                                     
-                                    <a href="#">Jessica Noel</a>
+                                    <p class="mb-2" style="color: #000000">張潔西</p>
                                 </div>
 
                                 <span class="ms-auto">3 days ago</span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="related-news section-padding bg-white">
-                <div class="container">
-                    <div class="row">
-
-                        <h2 class="text-center mb-lg-5 mb-4">Related News</h2>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="news-thumb mb-4">
-                                <a href="news-detail.html">
-                                    <img src="images/news/gilles-lambert-S_LhjpfIdm4-unsplash.jpg" class="img-fluid news-image" alt="">
-                                </a>
-                                
-                                <div class="news-text-info">
-                                    <span class="category-tag me-3 bg-info">Promotions</span>
-
-                                    <strong>12 April 2022</strong>
-
-                                    <h5 class="news-title mt-2">
-                                        <a href="news-detail.html" class="news-title-link">Is Coconut good for your health?</a>
-                                    </h5>
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="news-thumb mb-4">
-                                <a href="news-detail.html">
-                                    <img src="images/news/ella-olsson-mmnKI8kMxpc-unsplash.jpg" class="img-fluid news-image" alt="">
-                                </a>
-                                
-                                <div class="news-text-info">
-                                    <span class="category-tag me-3 bg-info">Career</span>
-
-                                    <strong>18 April 2022</strong>
-
-                                    <h5 class="news-title mt-2">
-                                        <a href="news-detail.html" class="news-title-link">How to run a sushi business?</a>
-                                    </h5>
-                                </div>
-                            </div> 
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-12">
-                            <div class="news-thumb mb-4">
-                                <a href="news-detail.html">
-                                    <img src="images/news/louis-hansel-GiIiRV0FjwU-unsplash.jpg" class="img-fluid news-image" alt="">
-                                </a>
-                                
-                                <div class="news-text-info">
-                                    <span class="category-tag me-3 bg-info">Meeting</span>
-
-                                    <strong>30 April 2022</strong>
-
-                                    <h5 class="news-title mt-2">
-                                        <a href="news-detail.html" class="news-title-link">Learning a fine dining experience</a>
-                                    </h5>
-                                </div>
-                            </div> 
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <section class="newsletter section-padding">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-6 col-12">
-                            <img src="images/charles-deluvio-FdDkfYFHqe4-unsplash.jpg" class="img-fluid newsletter-image" alt="">
-                        </div>
-
-                        <div class="col-lg-6 col-12 d-flex align-items-center mt-5 mt-lg-0 mx-auto">
-                            <div class="subscribe-form-wrap">
-                                <h4 class="mb-0">Our Newsletter</h4>
-
-                                <p>The food news every day</p>
-
-                                <form class="custom-form subscribe-form mt-4" role="form">
-                                    <input type="email" name="subscribe-email" id="subscribe-email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Your email address" required="">
-
-                                    <button type="submit" class="form-control mb-3" id="subscribe">Subscribe</button>
-
-                                    <small>By signing up, you agree to our Privacy Notice and the data policy</small>
-                                    </div>
-                                </form>
                             </div>
                         </div>
 
@@ -281,49 +191,36 @@ https://www.tooplate.com/view/2129-crispy-kitchen
                 
                 <div class="row">
 
-                    <div class="col-12">
-                        <h4 class="text-white mb-4 me-5">Crispy Kitchen</h4>
-                    </div>
-
                     <div class="col-lg-4 col-md-7 col-xs-12 tooplate-mt30">
-                        <h6 class="text-white mb-lg-4 mb-3">Location</h6>
+                        <h6 class="text-white mb-lg-4 mb-3">關於我們</h6>
 
-                        <p>121 Einstein Loop N, Bronx, NY 10475, United States</p>
+                        <p>407 台中市 台灣大道四段</p>
 
-                        <a href="https://goo.gl/maps/wZVGLA7q64uC1s886" class="custom-btn btn btn-dark mt-2">Directions</a>
-                    </div>
+                        <a href="https://maps.app.goo.gl/ti1XMTtaxDRFaEHB7" class="custom-btn btn btn-dark mt-2">Google Map</a>                    </div>
 
                     <div class="col-lg-4 col-md-5 col-xs-12 tooplate-mt30">
-                        <h6 class="text-white mb-lg-4 mb-3">Opening Hours</h6>
+                        <a href="#"><h6 class="text-white mb-lg-4 mb-3">部落格</h6></a>
 
-                        <p class="mb-2">Monday - Friday</p>
-
-                        <p>10:00 AM - 08:00 PM</p>
-
-                        <p>Tel: <a href="tel: 010-02-0340" class="tel-link">010-02-0340</a></p>
                     </div>
 
                     <div class="col-lg-4 col-md-6 col-xs-12 tooplate-mt30">
-                        <h6 class="text-white mb-lg-4 mb-3">Social</h6>
+                        <h6 class="text-white mb-lg-4 mb-3">社群</h6>
 
                         <ul class="social-icon">
                             <li><a href="#" class="social-icon-link bi-facebook"></a></li>
 
                             <li><a href="#" class="social-icon-link bi-instagram"></a></li>
 
-                            <li><a href="#" class="social-icon-link bi-twitter"></a></li>
+                            <li><a href="#" target="_blank"
+                            	 class="social-icon-link bi-twitter"></a></li>
 
                             <li><a href="#" class="social-icon-link bi-youtube"></a></li>
                         </ul>
                     
-                        <p class="copyright-text tooplate-mt60">Copyright © 2022 Crispy Kitchen Co., Ltd.
-                        <br>Design: <a rel="nofollow" href="https://www.tooplate.com/" target="_blank">Tooplate</a></p>
-                        
                     </div>
-
                 </div><!-- row ending -->
-                
-             </div><!-- container ending -->
+             </div>
+            <!-- container ending -->
              
         </footer>
 
